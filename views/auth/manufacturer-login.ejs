@@ -1,0 +1,44 @@
+<%- include('../partials/header') %>
+    <link rel="stylesheet" href="/css/index.css">
+
+
+    <section class="login-page">
+        <div class="login-page-container">
+            <!-- MAIN  -->
+            <div class="row align-items-center py-5">
+
+                <div class="heading">
+                    <h1>Manufacturer</h1>
+                </div>
+                <!-- LOTTIE ANIMATION  -->
+                <div class="animation-container col-md-5  col-lg-6">
+                    <lottie-player src="https://assets7.lottiefiles.com/packages/lf20_sop8cbmc.json"  background="transparent"  speed="1"  style="max-width: 500px; max-height: 500px;"  loop autoplay></lottie-player>
+                </div>
+
+                
+                <!-- SIGN IN  -->
+                <div class="col-md-4  col-lg-5 form-container">
+                    <main class="form-signin m-auto signIn-form">
+                        <form action="/auth/manufacturer/login" method="post">
+                            <h1 class="h3 mb-3 fw-normal signUp-heading">Login Account</h1>
+                            <div class="form-floating">
+                                <input type="email" name="email" class="form-control input_box" id="floatingInput"
+                                    placeholder="name@example.com">
+                                <label for="floatingInput">Email address</label>
+                            </div>
+                            <div class="form-floating">
+                                <input type="password" name="password" class="form-control input_box"
+                                    id="floatingPassword" placeholder="Password">
+                                <label for="floatingPassword">Password</label>
+                            </div>
+                            <input type="hidden" name="user" value="manufacturer">
+                            <button class="w-100 btn btn-lg btn-primary signUp-btn " type="submit">Sign in</button>
+                        </form>
+                    </main>
+                </div>
+
+            </div> <!-- </div> LOGIN CONTAINER CLOSED -->
+        </div>
+    </section>
+
+    <%- include('../partials/footer') %>

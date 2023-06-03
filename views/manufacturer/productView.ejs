@@ -1,0 +1,92 @@
+<%- include('../partials/header') %>
+    <link rel="stylesheet" href="/css/index.css">
+
+
+    <section>
+
+
+        <div class="transporter-view">
+            <div class="container">
+
+                <h1 class="heading">Product</h1>
+
+                <div class="product-detail">
+                    <div class="product-card">
+                        <div class="card-body ">
+                            <blockquote class="blockquote blockquote-custom bg-white px-3 pt-4">
+                                <p class="mb-0 mt-2 font-italic">
+
+                                <div class="row">
+                                    <div class="col">
+                                        <p>Order ID :</p>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <%= message.orderID%>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <p>To :</p>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <%= message.to%>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <p>From:</p>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <%= message.from%>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <p>Quantity :</p>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <%= message.quantity%>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <p>Price :</p>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <%= message.price%>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <p>Address :</p>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <%= message.address%>
+                                    </div>
+                                </div>
+                                <footer class=" pt-4 mt-4 border-top">
+                                    <div class="reply-section">
+                                        <div class="button-group">
+                                            <form
+                                                action="/manufacturer/dashboard/message/delete/<%= message._id %>?_method=DELETE"
+                                                method="POST">
+                                                <button type="submit" class="app-btn-style">Accept</button>
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </footer>
+                            </blockquote>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+
+
+    <%- include('../partials/footer') %>

@@ -1,0 +1,79 @@
+<%- include('../partials/header') %>
+    <link rel="stylesheet" href="/css/index.css">
+
+
+    <section>
+        <div class="main-dashboard">
+            <div class="container">
+                <h1 class="heading">Dashboard</h1>
+
+                <div class="search-container">
+                    <form action="/transporter/dashboard/getMessage" method="get">
+                        <div class="input-group" style="justify-content: center;">
+                            <div class="form-outline" style="width: 80%">
+                                <input id="search-input" type="search" name="search" id="form1"
+                                    class="form-control search-box" placeholder="Search By Order Id" />
+                            </div>
+                            <button id="search-button" type="submit" class="btn btn-primary search-btn">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-striped ">
+                        <thead>
+                            <tr>
+                                <th scope="col">Order ID</th>
+                                <th scope="col">To</th>
+                                <th scope="col">From</th>
+                                <th scope="col">Quantity (Tons)</th>
+                                <th scope="col">Address</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% if(messages.length > 0) { %>
+                            <% messages.forEach(message=> { %>
+
+                                <tr>
+                                    <td>
+                                        <%= message.orderID%>
+                                    </td>
+                                    <td>
+                                        <%= message.to%>
+                                    </td>
+                                    <td>
+                                        <%= message.from%>
+                                    </td>
+                                    <td>
+                                        <%= message.quantity%>
+                                    </td>
+                                    <td>
+                                        <%= message.address%>
+                                    </td>
+                                    <td id="action-btn-container">
+                                        <a class="action-btn" href="/transporter/dashboard/view/<%=message._id %>"><i class="fa-solid fa-eye "></i></a>
+
+                                        <form action="/transporter/dashboard/message/delete/<%= message._id %>?_method=DELETE" method="POST">
+                                            <button type="submit" class="action-btn"><i
+                                                    class="fa-solid fa-trash "></i></button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+
+                    <% } else { %>
+                        <lottie-player
+                            src="https://assets2.lottiefiles.com/packages/lf20_ipftpIrABJ.json"
+                            background="transparent" speed="1" style="max-width: 500px; max-height: 500px; margin: 1rem auto;"
+                            loop autoplay></lottie-player>
+                        <% } %>
+            </div>
+        </div>
+    </section>
+
+    <%- include('../partials/footer') %>

@@ -1,0 +1,112 @@
+<%- include('../partials/header') %>
+    <link rel="stylesheet" href="/css/index.css">
+
+
+    <section>
+
+
+        <div class="transporter-view">
+            <div class="container">
+
+                <h1 class="heading">Product</h1>
+
+                <div class="product-detail">
+                    <div class="product-card">
+                        <div class="card-body ">
+                            <blockquote class="blockquote blockquote-custom bg-white px-3 pt-4">
+                                <p class="mb-0 mt-2 font-italic">
+
+                                <div class="row">
+                                    <div class="col">
+                                        <p>Order ID :</p>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <p>
+                                            <%= message.orderID %>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <p>To :</p>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <p>
+                                            <%= message.to %>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <p>From:</p>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <p>
+                                            <%= message.from %>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <p>Quantity :</p>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <p>
+                                            <%= message.quantity %>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <p>Transporter :</p>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <p>
+                                            <%= message.transporter %>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <p>Address :</p>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <p>
+                                            <%= message.address %>
+                                        </p>
+                                    </div>
+                                </div>
+                                <footer class=" pt-4 mt-4 border-top">
+                                    <div class="reply-section">
+                                        <form action="/transporter/dashboard/view/sendMessage/<%=message._id %>"
+                                            method="POST">
+                                            <div class="mb-3">
+                                                <label for="exampleFormControlTextarea1"
+                                                    class="form-label">Reply</label>
+                                                <textarea class="form-control" name="reply"
+                                                    id="exampleFormControlTextarea1" rows="3" required></textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="exampleFormControlInput1" class="form-label">Price ($)</label>
+                                                <input type="number" name="price" class="form-control"
+                                                    id="exampleFormControlInput1" placeholder="title" required>
+                                            </div>
+                                            <div class="button-group">
+                                                <button type="submit" class="app-btn-style">Send</button>
+                                        </form>
+                                        <button type="submit" class="app-btn-style">Delete</button>
+                                    </div>
+                        </div>
+                        </footer>
+                        </blockquote>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        </div>
+    </section>
+
+
+
+    <%- include('../partials/footer') %>

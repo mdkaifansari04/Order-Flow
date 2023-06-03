@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/*? DEFAULT STYLE */
+
+.app-btn-style {
+    padding: 0.8rem 1rem !important;
+    text-decoration: none !important;
+    color: #f6f6f6 !important;
+    border: none;
+    font-weight: 800 !important;
+    background-color: #5C8984 !important;
+    border-radius: 20px !important;
+    margin: 0 1rem;
+}
+
+.nav-link .active {
+    color: #f6f6f6 !important;
+}
+
+.heading{
+        text-align: center;
+}
+
+a{
+    text-decoration: none !important;
+}
+/*? NAVBAR STYLING */
+.navbar {
+    justify-content: space-between !important;
+}
+
+.navbar-brand i {
+    font-size: 2rem;
+    color: #5C8984;
+}
+
+.navbar-nav {
+    margin: 0 auto;
+}
+
+.nav-link {
+    color: #0d0d0d !important;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.login-btn a {
+    padding: 0.8rem 1rem;
+    text-decoration: none;
+    color: #f6f6f6 !important;
+    font-weight: 800;
+    background-color: #5C8984;
+    border-radius: 20px;
+}
+
+.container-fluid {
+    justify-content: space-between;
+}
+
+/*? MAIN SECTION STYLING */
+
+.main {
+    margin: 2rem auto;
+    align-items: center;
+    text-align: center;
+}
+
+.heading-title {
+    margin: 2%;
+    font-weight: 800;
+
+}
+
+.login-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 3rem auto;
+}
+
+.option {
+    padding: 1rem 1.1rem;
+    margin: 1rem;
+    width: auto;
+    border-radius: 21px;
+    background-color: #5C8984;
+}
+
+.option a {
+    text-decoration: none;
+    color: #f6f6f6;
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+
+/*? REGISTER PAGE STYLING */
+
+.registration-page {
+    margin: 2rem auto;
+}
+
+.register-form {
+    width: 80%;
+    margin: 1rem auto;
+}
+
+.registration-heading {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 3rem;
+}
+
+.from-container {
+    margin: 2rem 1.3rem;
+}
+
+.app-btn-style .active{
+    color: #f6f6f6 !important;
+}
+
+
+
+/*? LOGIN FORM STYLING  */
+.login-container {
+    margin-top:5rem ;
+    width: 100%;
+    height: auto;
+}
+
+.signUp-heading{
+    font-weight: 600 !important;
+    text-align: center !important;
+}
+
+.signIn-form {
+    max-width: 30rem;
+    margin: 5% auto;
+    padding: 7%;
+    box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.2);
+    border-radius: 32px;
+}
+
+.form-container {
+    padding: 3%;
+    margin: 0 auto;
+}
+
+.input_box {
+    outline: 0;
+    border-radius: none;
+    height: 32px;
+    background-color: transparent;
+    border-width: 0 0 2px;
+    margin-bottom: 3%;
+
+}
+
+.input_box:focus {
+    border-color: black;
+}
+
+.row {
+    width: 100%;
+    margin: 0px;
+}
+
+.animation-container {
+    justify-content: center;
+    align-items: center;
+}
+
+.signUp-btn{
+    padding: 0.8rem 1rem !important;
+    text-decoration: none !important;
+    color: #f6f6f6 !important;
+    font-weight: 800 !important;
+    background-color: #5C8984 !important;
+    border-radius: 20px !important;
+    margin-top:1rem;
+}
+
+/*? DASHBOARD STYLING  */
+
+.main-dashboard{
+    margin: 3rem auto;
+}
+
+.search-container{
+    margin: 2rem 0;
+}
+
+#search-button{
+    text-decoration: none !important;
+    color: #f6f6f6 !important;
+    font-weight: 800 !important;
+    background-color: #5C8984 !important;
+}
+
+#action-btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.action-btn {
+    border: none;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: inherit;
+    background: none;
+}
+
+.action-btn i {
+    font-size: 1.5rem;
+    color: #5C8984;
+    text-decoration: none;
+}
+
+.transport-product-btn{
+    padding: 0.8rem 1rem !important;
+    text-decoration: none !important;
+    color: #f6f6f6 !important;
+    border: none;
+    font-weight: 800 !important;
+    background-color: #5C8984 !important;
+    border-radius: 50% !important;
+    margin: 0 1rem;
+    position: fixed;
+    top: 85%;
+    left: 80%;
+}
+
+/* ?TRANSPORTER-VIEW PAGE STYLING  */
+
+.transporter-view{
+    margin: 2rem auto;
+}
+
+.product-card{
+    width: 80%;
+    margin: 2rem auto
+}
+
+.fa-solid {
+    color: #f6f6f6;
+}
+
+.card card-body {
+    text-align: center;
+}
+
+/* ? CREATE TRANSPORT PAGE STYLING  */
+
+.create-transport-page{
+    margin: 1rem auto;
+    width: 80%;
+}
+
+.form-container{
+    margin: 2rem 0;
+}
+
+@media only screen and (max-width: 481px) {
+
+    /* ?MEDIA QUERIES FOR REGISTRATION FORM  */
+    .register-form {
+        width: 97%;
+    }
+
+    .button-group {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .btn-section {
+        width: 10rem;
+    }
+
+    /* ?MEDIA QUERIES FOR TRANSPORTER VIEW PAGE  */
+    
+    .product-card{
+        width: 97%;
+    }
+
+    /*? MEDIA QUERIES FOR Create Transport VIEW PAGE  */
+    
+    .create-transport-page{
+        width: 95%;
+    }
+    /*? MEDIA QUERIES FOR MANUFACTURER DASHBOARD PAGE  */
+
+    .transport-product-btn{
+        position: fixed;
+        top: 85%;
+        left: 70%;
+    }
+
+}

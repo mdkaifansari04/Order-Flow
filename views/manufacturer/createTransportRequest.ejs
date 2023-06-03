@@ -1,0 +1,51 @@
+<%- include('../partials/header') %>
+    <link rel="stylesheet" href="/css/index.css">
+
+    <section>
+        <div class="create-transport-page">
+            <div class="container">
+                <h1 class="heading">Export Product</h1>
+            </div>
+
+            <div class="form-container">
+                <form action="/manufacturer/dashboard/createTransport" method="post">
+                    <div class="input-container">
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">To :</label>
+                            <input type="text" name="to" class="form-control" id="exampleFormControlInput1"
+                                placeholder="title" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">From :</label>
+                            <input type="text" name="from" class="form-control" id="exampleFormControlInput1"
+                                placeholder="title" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Address</label>
+                            <input type="text" name="address" class="form-control" id="exampleFormControlInput1"
+                                placeholder="title" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Select" class="form-label">Quantity in Tons</label>
+                            <select name="quantity" id="Select" class="form-select">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Select" class="form-label">Transporter</label>
+                            <select name="transporter" id="Select" class="form-select">
+                                <option>Tesla Transporter</option>
+                            </select>
+                        </div>
+                        <button class="btn app-btn-style create-transport-btn" type="submit"> Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+
+    <%- include('../partials/footer') %>
