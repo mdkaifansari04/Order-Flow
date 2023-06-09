@@ -87,7 +87,7 @@ const registerManufacturer = (req, res) => {
                                                 userSession(req, res, () => {
                                                         console.log('Middleware call');
                                                 })
-                                                req.flash('message', 'Registered your account 😛')
+                                                req.flash('message', 'Registered your account 😊')
                                                 res.redirect(`/manufacturer/dashboard`)
                                         })
                                         .catch((error) => {
@@ -113,8 +113,9 @@ const registerTransporter = async (req, res) => {
 
         try {
                 const foundTransporter = await Transporter.find({})
+                
+                console.log(foundTransporter);
 
-                if (foundTransporter.length < 0) {
                         if (req.body.password.length >= 8) {
                                 bcrypt.hash(req.body.password, 10, async function (err, hash) {
         
@@ -129,7 +130,7 @@ const registerTransporter = async (req, res) => {
                                                         userSession(req, res, () => {
                                                                 console.log('Middleware call');
                                                         })
-                                                        req.flash('message', 'Registered your account 😛')
+                                                        req.flash('message', 'Registered your account 😊')
                                                         res.redirect(`/transporter/dashboard`)
                                                 })
                                                 .catch((error) => {
@@ -141,10 +142,7 @@ const registerTransporter = async (req, res) => {
                                 req.flash('alertMessage', "Password must be atleast 8 character long ! ")
                                 res.redirect('/auth/register')
                         }
-                } else {
-                        req.flash('alertMessage', 'Transporter already registered !')
-                        res.redirect('/auth/register')
-                }
+
 
 
         } catch (error) {
@@ -164,7 +162,7 @@ const loginManufacturer = async (req, res) => {
                                         userSession(req, res, (err) => {
                                                 console.log("Session Created");
                                         })
-                                        req.flash('message', 'Logged In Successfully 😛')
+                                        req.flash('message', 'Logged In Successfully 😊')
                                         res.redirect('/manufacturer/dashboard')
                                 } else {
                                         req.flash('alertMessage', 'Wrong Credentials')
@@ -193,7 +191,7 @@ const loginTransporter = async (req, res) => {
                                         userSession(req, res, (err) => {
                                                 console.log("Session Created");
                                         })
-                                        req.flash('message', 'Logged In Successfully 😛')
+                                        req.flash('message', 'Logged In Successfully 😊')
                                         res.redirect('/transporter/dashboard')
                                 } else {
                                         req.flash('alertMessage', 'Wrong Credentials ☹️')

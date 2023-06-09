@@ -1,15 +1,19 @@
 
 const ManufacturerMessage = require('../models/ManufacturerMessageSchema')
 const TransporterMessage = require('../models/TransporterMessageSchema')
+const Transporter = require('../models/TransporterSchema')
 
 
 const renderTransportDashboard = async (req, res) => {
+
     let message = req.flash('message')
     let alertMessage = req.flash('alertMassage')
 
-    const foundManufacturerMessage = await ManufacturerMessage.find({})
-
     if (req.session.email && req.session.user == 'transporter') {
+
+        const foundTransporter = await Transporter.findOne({ email : req.session.email})
+        const foundManufacturerMessage = await ManufacturerMessage.find({ transporter : foundTransporter.username})
+    
         res.render('transporter/dashboard', {
             message: message,
             alertMessage: alertMessage,

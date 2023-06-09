@@ -36,7 +36,10 @@
                         <div class="mb-3">
                             <label for="Select" class="form-label">Transporter</label>
                             <select name="transporter" id="Select" class="form-select">
-                                <option>Tesla Transporter</option>
+                                <% Transporters.forEach(Transporter => { %>
+                                    <option><%= Transporter.username %></option>
+                                    <% }); %>
+                                
                             </select>
                         </div>
                         <button class="btn app-btn-style create-transport-btn" type="submit"> Send</button>

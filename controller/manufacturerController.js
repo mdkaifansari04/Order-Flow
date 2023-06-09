@@ -1,4 +1,5 @@
 const Manufacturer = require('../models/ManufacturerSchema')
+const Transporter = require('../models/TransporterSchema')
 const ManufacturerMessage = require('../models/ManufacturerMessageSchema')
 const TransporterMessage = require('../models/TransporterMessageSchema')
 
@@ -45,16 +46,19 @@ const renderProductView = async (req, res) => {
     }
 }
 
-const renderCreateTransportPage = (req, res) => {
+const renderCreateTransportPage = async (req, res) => {
 
     let message = req.flash('message')
     let alertMessage = req.flash('alertMassage')
+
+    const AvailableTransporter = await Transporter.find({})
 
     if (req.session.email  && req.session.user == 'manufacturer') {
         res.render('manufacturer/createTransportRequest', {
             message: message,
             alertMessage: alertMessage,
-            loginOption: 'Logout'
+            loginOption: 'Logout',
+            Transporters : AvailableTransporter
         })
     }
     else {
