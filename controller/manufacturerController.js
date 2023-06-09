@@ -9,7 +9,7 @@ const renderManufacturerDashboard = async (req, res) => {
     let alertMessage = req.flash('alertMassage')
 
 
-    const foundTransporterMessages = await TransporterMessage.find({})
+    const foundTransporterMessages = await TransporterMessage.find({email : req.session.email})
 
     if (req.session.email  && req.session.user == 'manufacturer') {
         res.render('manufacturer/dashboard', {
@@ -63,9 +63,10 @@ const renderCreateTransportPage = (req, res) => {
 }
 
 
-const createTransport = async (req, res) => {
+const sendMessageToTransporter = async (req, res) => {
 
     try {
+
         function generateAlphanumericCode(length) {
             let alphanumeric = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
             let code = '';
@@ -88,12 +89,13 @@ const createTransport = async (req, res) => {
             quantity: req.body.quantity,
             address: foundManufacturer.address,
             transporter: req.body.transporter,
+            email : req.session.email,
         })
 
         newTransportMessage.save()
             .then(() => {
                 console.log(newTransportMessage);
-                req.flash('message', 'Export Product Successfully 😛')
+                req.flash('message', 'Export Product Successfully 😊')
                 res.redirect('/manufacturer/dashboard/createTransport')
             })
             .catch((err) => {
@@ -111,7 +113,7 @@ const deleteMessage = async (req, res) => {
     try {
         await TransporterMessage.deleteOne({ _id: req.params.id })
             .then(() => {
-                req.flash('message', 'Deleted Successfully 😛')
+                req.flash('message', 'Deleted Successfully 😊')
                 res.redirect('/manufacturer/dashboard')
             })
             .catch((err) => {
@@ -153,7 +155,7 @@ module.exports = {
     renderManufacturerDashboard: renderManufacturerDashboard,
     renderProductView: renderProductView,
     renderCreateTransportPage: renderCreateTransportPage,
-    createTransport: createTransport,
+    sendMessageToTransporter: sendMessageToTransporter,
     deleteMessage: deleteMessage,
     getMessageByOrderID: getMessageByOrderID
 }

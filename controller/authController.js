@@ -107,35 +107,45 @@ const registerManufacturer = (req, res) => {
         }
 }
 
+//? TRANSPORTER ROUTES ACTIONS
+
 const registerTransporter = async (req, res) => {
 
         try {
-                if (req.body.password.length >= 8) {
-                        bcrypt.hash(req.body.password, 10, async function (err, hash) {
+                const foundTransporter = await Transporter.find({})
 
-                                const newTransporter = new Transporter({
-                                        username: req.body.username,
-                                        email: req.body.email,
-                                        password: hash,
-                                        address: req.body.address
-                                })
-                                await newTransporter.save()
-                                        .then(function () {
-                                                userSession(req, res, () => {
-                                                        console.log('Middleware call');
+                if (foundTransporter.length < 0) {
+                        if (req.body.password.length >= 8) {
+                                bcrypt.hash(req.body.password, 10, async function (err, hash) {
+        
+                                        const newTransporter = new Transporter({
+                                                username: req.body.username,
+                                                email: req.body.email,
+                                                password: hash,
+                                                address: req.body.address
+                                        })
+                                        await newTransporter.save()
+                                                .then(function () {
+                                                        userSession(req, res, () => {
+                                                                console.log('Middleware call');
+                                                        })
+                                                        req.flash('message', 'Registered your account 😛')
+                                                        res.redirect(`/transporter/dashboard`)
                                                 })
-                                                req.flash('message', 'Registered your account 😛')
-                                                res.redirect(`/transporter/dashboard`)
-                                        })
-                                        .catch((error) => {
-                                                req.flash(`alertMessage', 'User Already Exist ! 🙄`)
-                                                res.redirect('/auth/register')
-                                        })
-                        })
+                                                .catch((error) => {
+                                                        req.flash(`alertMessage', 'User Already Exist ! 🙄`)
+                                                        res.redirect('/auth/register')
+                                                })
+                                })
+                        } else {
+                                req.flash('alertMessage', "Password must be atleast 8 character long ! ")
+                                res.redirect('/auth/register')
+                        }
                 } else {
-                        req.flash('alertMessage', "Password must be atleast 8 character long ! ")
+                        req.flash('alertMessage', 'Transporter already registered !')
                         res.redirect('/auth/register')
                 }
+
 
         } catch (error) {
                 res.send('Server Error : ' + error)

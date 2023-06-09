@@ -55,6 +55,7 @@ const sendMessageToManufacturer = async (req, res) => {
             address: foundMessage.address,
             reply: req.body.reply,
             price: req.body.price,
+            email : req.body.email,
         })
         newTransporterMessage.save()
             .then(() => {
@@ -74,7 +75,7 @@ const deleteManufacturerMessage = async (req, res) => {
     try {
         await ManufacturerMessage.deleteOne({ _id: req.params.id })
             .then(() => {
-                req.flash('message', 'Deleted Successfully 😛')
+                req.flash('message', 'Deleted Successfully 😊')
                 res.redirect('/transporter/dashboard')
             })
             .catch((err) => {
